@@ -25,6 +25,40 @@ namespace BMI
         public MainPage()
         {
             this.InitializeComponent();
+            BackButton.Visibility = Visibility.Collapsed;
+            MyFrame.Navigate(typeof(Financial));
+            TitleTextBlock.Text = "Financial";
+            Financial.IsSelected = true;
+        }
+
+        private void HamburgerButton_Click(object sender, RoutedEventArgs e)
+        {
+            MySplitView.IsPaneOpen = !MySplitView.IsPaneOpen;
+        }
+
+        private void BackButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (MyFrame.CanGoBack)
+            {
+                MyFrame.GoBack();
+                Financial.IsSelected = true;
+            }
+        }
+
+        private void ListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (Financial.IsSelected)
+            {
+                BackButton.Visibility = Visibility.Collapsed;
+                MyFrame.Navigate(typeof(Financial));
+                TitleTextBlock.Text = "Financial";
+            }
+            else if (Food.IsSelected)
+            {
+                BackButton.Visibility = Visibility.Visible;
+                MyFrame.Navigate(typeof(Food));
+                TitleTextBlock.Text = "Food";
+            }
         }
     }
 }

@@ -26,7 +26,7 @@ namespace BMI
         {
             this.InitializeComponent();
             BackButton.Visibility = Visibility.Collapsed;
-            MyFrame.Navigate(typeof(Financial));
+            MyFrame.Navigate(typeof(Financial));  // I have to find out why I did financial and food for naming
             TitleTextBlock.Text = "Financial";
             Financial.IsSelected = true;
         }

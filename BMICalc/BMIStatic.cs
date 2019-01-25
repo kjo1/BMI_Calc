@@ -8,7 +8,7 @@ namespace BMICalc
 {
     public class BMIStatic
     {
-        public static double bmiValue(double height, double weight, Units u, out string category)
+        public static double bmiValue(double height, double weight, Units u, out string category) // category output parameter
         {
             if (height < 0 || weight < 0)
             {
